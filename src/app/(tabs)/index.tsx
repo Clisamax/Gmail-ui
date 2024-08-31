@@ -1,6 +1,7 @@
 import { MenuButton } from '@/app/Components/menu_button';
 import { Input } from '../Components/input';
 import { View } from 'react-native';
+import { Avatar } from '@/app/Components/avatar';
 
 const Home: React.FC = () => {
   return (
@@ -8,6 +9,7 @@ const Home: React.FC = () => {
       <Input>
 			<MenuButton/>
 			<Input.Fild placeholder='Pesquizar no e-mail'/>
+			<Avatar source={{uri: "http://github.com/clisamax.png"}} size='small'/>
 			</Input>
     </View>
   );
