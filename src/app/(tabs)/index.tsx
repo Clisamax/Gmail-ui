@@ -2,7 +2,9 @@ import { Avatar } from '@/Components/avatar';
 import { Email } from '@/Components/email';
 import { Input } from '@/Components/input';
 import { MenuButton } from '@/Components/menu_button';
-import { View } from 'react-native';
+import { EMAILS } from '@/utils/email';
+import { Text, View } from 'react-native';
+import { FlatList } from 'react-native-gesture-handler';
 
 export default function Home() {
   return (
@@ -12,7 +14,13 @@ export default function Home() {
         <Input.Fild placeholder="Pesquizar no e-mail" />
         <Avatar source={{ uri: 'http://github.com/clisamax.png' }} size="small" />
       </Input>
-      <Email />
+      <FlatList
+        data={EMAILS}
+        keyExtractor={(item) => item.id}
+        renderItem={({ item }) => <Email data={item} />}
+        contentContainerClassName="gap-6"
+        ListHeaderComponent={() => <Text className='uppercase text-gray-400 font-subtitle text-sm mt-6' > Entrada </Text>}
+      />
     </View>
   );
 }
